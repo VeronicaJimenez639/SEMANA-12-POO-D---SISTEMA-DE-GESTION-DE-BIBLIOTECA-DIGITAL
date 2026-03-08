@@ -126,3 +126,13 @@ class BibliotecaServicio:
         # Si sí lo tenía, vuelve al diccionario de disponibles.
         self._libros_disponibles[isbn] = libro
         return "Devolución realizada correctamente."
+    
+    def buscar_libros_por_titulo(self, titulo):
+        resultados = []
+
+        # Se busca en todo el catálogo reunido.
+        for libro in self._obtener_todos_los_libros():
+            if titulo.lower() in libro.get_titulo().lower():
+                resultados.append(libro)
+
+        return resultados
