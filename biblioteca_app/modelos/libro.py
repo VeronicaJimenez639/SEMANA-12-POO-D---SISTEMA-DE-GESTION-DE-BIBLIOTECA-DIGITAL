@@ -21,4 +21,8 @@ class Libro:
         return self._categoria
 
     def get_isbn(self):
-        return self._isbn     
+        return self._isbn 
+
+    def __str__(self):
+        # Este método permite mostrar el libro de forma clara cuando se imprime.
+        return f"{self.get_titulo()} - {self.get_autor()} | Categoría: {self.get_categoria()} | ISBN: {self.get_isbn()}"       
