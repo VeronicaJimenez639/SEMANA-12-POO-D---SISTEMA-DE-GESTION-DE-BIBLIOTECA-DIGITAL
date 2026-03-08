@@ -66,3 +66,14 @@ class BibliotecaServicio:
             return "No se puede eliminar el libro porque está prestado."
 
         return "Libro no encontrado."
+    
+    def registrar_usuario(self, usuario):
+        id_usuario = usuario.get_id_usuario()
+
+        # El set se usa para comprobar que el ID no se repita.
+        if id_usuario in self._ids_registrados:
+            return "El ID de usuario ya existe."
+
+        self._usuarios[id_usuario] = usuario
+        self._ids_registrados.add(id_usuario)
+        return "Usuario registrado correctamente."
