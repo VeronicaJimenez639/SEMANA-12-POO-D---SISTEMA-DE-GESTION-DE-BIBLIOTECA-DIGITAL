@@ -11,3 +11,14 @@ class BibliotecaServicio:
 
         # Se usa un set para asegurar que no existan IDs repetidos.
         self._ids_registrados = set()
+
+
+    def _buscar_libro_prestado(self, isbn):
+        # Este método privado revisa en todos los usuarios si un libro
+        # con ese ISBN está prestado.
+        # Es privado porque solo se usa dentro del servicio.
+        for usuario in self._usuarios.values():
+            for libro in usuario.get_libros_prestados():
+                if libro.get_isbn() == isbn:
+                    return libro
+        return None
