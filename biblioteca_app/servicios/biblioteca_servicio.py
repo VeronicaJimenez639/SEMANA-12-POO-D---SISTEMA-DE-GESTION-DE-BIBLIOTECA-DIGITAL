@@ -164,4 +164,4 @@ class BibliotecaServicio:
     
     def listar_libros_disponibles(self):
         # Convierte los valores del diccionario en lista para mostrarlos más fácil.
-        return list(self._libros_disponibles.values())
+        return list(self._libros_disponibles.values()) 
