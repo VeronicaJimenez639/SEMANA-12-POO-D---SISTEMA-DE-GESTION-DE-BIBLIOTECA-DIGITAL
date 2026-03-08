@@ -22,3 +22,25 @@ class BibliotecaServicio:
                 if libro.get_isbn() == isbn:
                     return libro
         return None
+    
+    def _obtener_todos_los_libros(self):
+        # Reúne los libros disponibles y también los prestados.
+        # Esto permite buscar en todo el catálogo, no solo en los disponibles.
+        todos_los_libros = []
+
+        # Este set evita duplicar libros al reunirlos.
+        isbns_vistos = set()
+
+        # Primero agrega los libros disponibles.
+        for libro in self._libros_disponibles.values():
+            todos_los_libros.append(libro)
+            isbns_vistos.add(libro.get_isbn())
+
+        # Luego agrega los libros prestados, si todavía no fueron añadidos.
+        for usuario in self._usuarios.values():
+            for libro in usuario.get_libros_prestados():
+                if libro.get_isbn() not in isbns_vistos:
+                    todos_los_libros.append(libro)
+                    isbns_vistos.add(libro.get_isbn())
+
+        return todos_los_libros
