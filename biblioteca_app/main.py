@@ -31,3 +31,16 @@ def menu():
         print("0. Salir")
 
         opcion = input("Seleccione una opción: ").strip()
+
+        if opcion == "1":
+            titulo = input("Título: ").strip()
+            autor = input("Autor: ").strip()
+            categoria = input("Categoría: ").strip()
+            isbn = input("ISBN: ").strip()
+
+            libro = Libro(titulo, autor, categoria, isbn)
+            print(biblioteca.agregar_libro(libro))
+
+        elif opcion == "2":
+            isbn = input("ISBN del libro a eliminar: ").strip()
+            print(biblioteca.eliminar_libro(isbn))
