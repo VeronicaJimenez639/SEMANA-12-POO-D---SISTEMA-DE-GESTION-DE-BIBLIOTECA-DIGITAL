@@ -154,3 +154,10 @@ class BibliotecaServicio:
                 resultados.append(libro)
 
         return resultados
+    
+    def listar_libros_prestados(self, id_usuario):
+        if id_usuario not in self._usuarios:
+            return None
+
+        usuario = self._usuarios[id_usuario]
+        return usuario.get_libros_prestados()
