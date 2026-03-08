@@ -77,3 +77,17 @@ class BibliotecaServicio:
         self._usuarios[id_usuario] = usuario
         self._ids_registrados.add(id_usuario)
         return "Usuario registrado correctamente."
+    
+    def eliminar_usuario(self, id_usuario):
+        if id_usuario not in self._usuarios:
+            return "Usuario no encontrado."
+
+        usuario = self._usuarios[id_usuario]
+
+        # No se debe eliminar un usuario que todavía tiene libros prestados.
+        if usuario.tiene_libros_prestados():
+            return "No se puede eliminar el usuario porque tiene libros prestados."
+
+        del self._usuarios[id_usuario]
+        self._ids_registrados.remove(id_usuario)
+        return "Usuario eliminado correctamente."
