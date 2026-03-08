@@ -136,3 +136,12 @@ class BibliotecaServicio:
                 resultados.append(libro)
 
         return resultados
+    
+    def buscar_libros_por_autor(self, autor):
+        resultados = []
+
+        for libro in self._obtener_todos_los_libros():
+            if autor.lower() in libro.get_autor().lower():
+                resultados.append(libro)
+
+        return resultados
