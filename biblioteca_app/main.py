@@ -65,3 +65,18 @@ def menu():
             isbn = input("ISBN del libro a devolver: ").strip()
             id_usuario = input("ID del usuario: ").strip()
             print(biblioteca.devolver_libro(isbn, id_usuario))
+
+        elif opcion == "7":
+            titulo = input("Ingrese el título a buscar: ").strip()
+            resultados = biblioteca.buscar_libros_por_titulo(titulo)
+            mostrar_libros(resultados)
+
+        elif opcion == "8":
+            autor = input("Ingrese el autor a buscar: ").strip()
+            resultados = biblioteca.buscar_libros_por_autor(autor)
+            mostrar_libros(resultados)
+
+        elif opcion == "9":
+            categoria = input("Ingrese la categoría a buscar: ").strip()
+            resultados = biblioteca.buscar_libros_por_categoria(categoria)
+            mostrar_libros(resultados)
