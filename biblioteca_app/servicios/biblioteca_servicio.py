@@ -145,3 +145,12 @@ class BibliotecaServicio:
                 resultados.append(libro)
 
         return resultados
+    
+    def buscar_libros_por_categoria(self, categoria):
+        resultados = []
+
+        for libro in self._obtener_todos_los_libros():
+            if categoria.lower() in libro.get_categoria().lower():
+                resultados.append(libro)
+
+        return resultados
