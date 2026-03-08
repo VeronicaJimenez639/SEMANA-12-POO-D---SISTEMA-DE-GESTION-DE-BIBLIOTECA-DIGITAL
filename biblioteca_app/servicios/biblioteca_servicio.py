@@ -54,3 +54,15 @@ class BibliotecaServicio:
 
         self._libros_disponibles[isbn] = libro
         return "Libro agregado correctamente."
+    
+    def eliminar_libro(self, isbn):
+        # Solo se puede eliminar si está disponible.
+        if isbn in self._libros_disponibles:
+            del self._libros_disponibles[isbn]
+            return "Libro eliminado correctamente."
+
+        # Si está prestado, no debe eliminarse.
+        if self._buscar_libro_prestado(isbn):
+            return "No se puede eliminar el libro porque está prestado."
+
+        return "Libro no encontrado."
