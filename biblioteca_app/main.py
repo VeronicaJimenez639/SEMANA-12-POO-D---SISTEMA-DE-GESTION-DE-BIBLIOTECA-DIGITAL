@@ -44,3 +44,14 @@ def menu():
         elif opcion == "2":
             isbn = input("ISBN del libro a eliminar: ").strip()
             print(biblioteca.eliminar_libro(isbn))
+
+        elif opcion == "3":
+            nombre = input("Nombre del usuario: ").strip()
+            id_usuario = input("ID del usuario: ").strip()
+
+            usuario = Usuario(nombre, id_usuario)
+            print(biblioteca.registrar_usuario(usuario))
+
+        elif opcion == "4":
+            id_usuario = input("ID del usuario a eliminar: ").strip()
+            print(biblioteca.eliminar_usuario(id_usuario))
