@@ -91,3 +91,23 @@ class BibliotecaServicio:
         del self._usuarios[id_usuario]
         self._ids_registrados.remove(id_usuario)
         return "Usuario eliminado correctamente."
+    
+    def prestar_libro(self, isbn, id_usuario):
+        # Primero se valida que el usuario exista.
+        if id_usuario not in self._usuarios:
+            return "Usuario no encontrado."
+
+        # Luego se valida que el libro esté disponible.
+        if isbn not in self._libros_disponibles:
+            return "Libro no disponible."
+
+        libro = self._libros_disponibles[isbn]
+        usuario = self._usuarios[id_usuario]
+
+        # El libro se agrega a la lista del usuario.
+        usuario.prestar_libro(libro)
+
+        # Luego se elimina de los disponibles porque ya fue prestado.
+        del self._libros_disponibles[isbn]
+
+        return "Préstamo realizado correctamente."
