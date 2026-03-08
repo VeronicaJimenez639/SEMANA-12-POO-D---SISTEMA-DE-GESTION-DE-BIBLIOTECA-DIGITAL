@@ -111,3 +111,18 @@ class BibliotecaServicio:
         del self._libros_disponibles[isbn]
 
         return "Préstamo realizado correctamente."
+    
+    def devolver_libro(self, isbn, id_usuario):
+        if id_usuario not in self._usuarios:
+            return "Usuario no encontrado."
+
+        usuario = self._usuarios[id_usuario]
+        libro = usuario.devolver_libro(isbn)
+
+        # Si el libro no está en la lista del usuario, no se puede devolver.
+        if libro is None:
+            return "Ese usuario no tiene prestado ese libro."
+
+        # Si sí lo tenía, vuelve al diccionario de disponibles.
+        self._libros_disponibles[isbn] = libro
+        return "Devolución realizada correctamente."
