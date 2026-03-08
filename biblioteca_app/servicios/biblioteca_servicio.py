@@ -161,3 +161,7 @@ class BibliotecaServicio:
 
         usuario = self._usuarios[id_usuario]
         return usuario.get_libros_prestados()
+    
+    def listar_libros_disponibles(self):
+        # Convierte los valores del diccionario en lista para mostrarlos más fácil.
+        return list(self._libros_disponibles.values())
