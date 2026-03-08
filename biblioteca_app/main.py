@@ -55,3 +55,13 @@ def menu():
         elif opcion == "4":
             id_usuario = input("ID del usuario a eliminar: ").strip()
             print(biblioteca.eliminar_usuario(id_usuario))
+
+        elif opcion == "5":
+            isbn = input("ISBN del libro a prestar: ").strip()
+            id_usuario = input("ID del usuario: ").strip()
+            print(biblioteca.prestar_libro(isbn, id_usuario))
+
+        elif opcion == "6":
+            isbn = input("ISBN del libro a devolver: ").strip()
+            id_usuario = input("ID del usuario: ").strip()
+            print(biblioteca.devolver_libro(isbn, id_usuario))
