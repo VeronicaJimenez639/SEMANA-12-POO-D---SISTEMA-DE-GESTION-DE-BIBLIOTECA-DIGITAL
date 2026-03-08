@@ -80,3 +80,23 @@ def menu():
             categoria = input("Ingrese la categoría a buscar: ").strip()
             resultados = biblioteca.buscar_libros_por_categoria(categoria)
             mostrar_libros(resultados)
+
+        elif opcion == "10":
+            id_usuario = input("ID del usuario: ").strip()
+            resultados = biblioteca.listar_libros_prestados(id_usuario)
+
+            if resultados is None:
+                print("Usuario no encontrado.")
+            else:
+                mostrar_libros(resultados)
+
+        elif opcion == "11":
+            resultados = biblioteca.listar_libros_disponibles()
+            mostrar_libros(resultados)
+
+        elif opcion == "0":
+            print("Saliendo del sistema...")
+            break
+
+        else:
+            print("Opción inválida.")
