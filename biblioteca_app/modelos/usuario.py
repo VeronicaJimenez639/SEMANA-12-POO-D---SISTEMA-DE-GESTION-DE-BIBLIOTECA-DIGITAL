@@ -35,3 +35,6 @@ class Usuario:
     def tiene_libros_prestados(self):
         # Sirve para validar si un usuario puede ser eliminado o no.
         return len(self._libros_prestados) > 0
+   
+    def __str__(self):
+        return f"Usuario: {self.get_nombre()} | ID: {self.get_id_usuario()}"
