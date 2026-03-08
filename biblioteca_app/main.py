@@ -101,3 +101,9 @@ def menu():
         else:
             print("Opción inválida.")
 
+
+if __name__ == "__main__":
+    # Este bloque asegura que el menú se ejecute solo si este archivo
+    # se corre directamente.
+    menu()
+
